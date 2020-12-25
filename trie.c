@@ -8,7 +8,6 @@ typedef struct Node {
     struct Node *childrens[NUM_CHILD];
 } node;
 
-
 node *create_node (char letter) {
     node *temp = (node *) malloc(sizeof(node));
     temp->letter = letter;
@@ -18,14 +17,24 @@ node *create_node (char letter) {
     return temp;
 }
     
+int get_index (char letter) {
+    return letter - 97;
+}
 
+node *get_next (node *parent, char letter) {
+    if (parent->childrens[get_index(letter)] != NULL) {
+        return parent->childrens[get_index(letter)];
+    }
+    return NULL;
+}
 
-
-
+void join_nodes (node *parent, node *child) {
+    parent->childrens[get_index(child->letter)] = child;
+}
 
 
 int main () {
-    node *temp = create_node('h');
-    printf("Letter: %c\n", temp->letter);
+    node *root = create_node('R');
+    char input_char = getchar();
     return 0;
 }
