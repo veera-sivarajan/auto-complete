@@ -1,9 +1,8 @@
 CC = gcc
-CFLAGS = -g -Wall 
+CFLAGS = -g -Wall -std=c99
 OBJECTS = $(filter-out test.c, $(wildcard *.c)) #Source files
-NAME = myshell #Desired filename
+NAME = autoC #Desired filename
 TODELETE = *.o # the *.o should be the same as the objects
-LIBS = -lreadline
 
 mt-collatz : $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) $(LIBS) 
@@ -13,5 +12,5 @@ mt-collatz : $(OBJECTS)
 clean:
 	rm -f $(TODELETE)
 
-run:	myshell
-	./myshell
+run:	autoC
+	./autoC
