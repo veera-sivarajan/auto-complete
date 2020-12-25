@@ -3,8 +3,10 @@
 
 int main (void) {
     char **words = read_file("input.txt");
-    for (int i = 0; i < 39; ++i) {
-        printf("Word: %s\n", words[i]);
+    int i = 0;
+    while (i < 39) {
+        printf("WORD: %s\n", words[i]);
+        ++i;
     }
     return 0;
 }
