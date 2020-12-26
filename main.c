@@ -2,7 +2,7 @@
 # include "trie.h"
 
 int main (void) {
-    node *root = create_node('R');
+    node *root = create_node('R', 0);
     // char **words = read_file("input.txt");
     // int i = 0;
     // while (i < 39) {
@@ -11,8 +11,8 @@ int main (void) {
     //     ++i;
     // }
     // free(words);
-    insert_word(root, "boomer");
-    insert_word(root, "apple");
+    insert_word(root, "bo");
+    insert_word(root, "boner");
     traverse(get_index('b'), root->childrens[get_index('b')]);
     free_tree(root);
     free(root);

@@ -7,9 +7,10 @@
 typedef struct Node {
     char letter;
     struct Node *childrens[NUM_CHILD];
+    int EOW;
 } node;
 
-node *create_node (char letter);
+node *create_node (char letter, int num);
     
 int get_index (char letter);
     
