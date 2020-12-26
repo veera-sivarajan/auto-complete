@@ -18,3 +18,5 @@ node *get_next (node *parent, char letter);
 void join_nodes (node *parent, node *child);
 
 void insert_word (node *root, char *word);
+
+void traverse (node *root, char next_letter);

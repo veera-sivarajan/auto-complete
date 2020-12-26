@@ -11,7 +11,8 @@ int main (void) {
     //     ++i;
     // }
     // free(words);
-    insert_word(root, "Hello");
+    insert_word(root, "hello");
+    traverse(root, 'h'); 
     free(root);
     return 0;
 }
