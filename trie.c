@@ -24,3 +24,16 @@ void join_nodes (node *parent, node *child) {
     parent->childrens[get_index(child->letter)] = child;
 }
 
+void insert_word (node *root, char *word) {
+    int len = strlen(word);
+    node *temp = root;
+    for (int i = 0; i < len; ++i) {
+        join_nodes(temp, create_node(word[0]));
+        temp = get_next(temp, word[0]);
+    }
+}
+
+
+        
+        
+

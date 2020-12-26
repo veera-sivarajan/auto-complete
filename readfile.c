@@ -1,6 +1,8 @@
 # include "readfile.h"
 # include "string.h"
 
+// read word in each line of given file
+// returns a pointer to pointer containing all words
 char **read_file (char *filename) {
     char **all_words = (char **) malloc(sizeof(char *) * 50);
     int count = 0;
