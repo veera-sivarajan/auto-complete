@@ -11,9 +11,10 @@ int main (void) {
     //     ++i;
     // }
     // free(words);
+    insert_word(root, "apple");
     insert_word(root, "hello");
     insert_word(root, "boomer");
-    traverse(0, root); 
+    traverse(get_index('b'), root); 
     free(root);
     return 0;
 }

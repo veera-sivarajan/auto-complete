@@ -38,9 +38,9 @@ void traverse (int start_index, node *root) {
         node *child = root->childrens[i];
         if (child) {
             printf("%c", child->letter);
+            traverse(0, child);
         }
     }
-    // traverse(start_index + 1, child);
 }
         
 
