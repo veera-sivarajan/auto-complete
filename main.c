@@ -14,7 +14,8 @@ int main (void) {
     insert_word(root, "apple");
     insert_word(root, "hello");
     insert_word(root, "boomer");
-    traverse(get_index('b'), root); 
+    insert_word(root, "bat");
+    traverse(get_index('b'), root->childrens[get_index('b')]);
     free(root);
     return 0;
 }

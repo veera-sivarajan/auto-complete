@@ -34,13 +34,17 @@ void insert_word (node *root, char *word) {
 }
 
 void traverse (int start_index, node *root) {
+    printf("%c", root->letter);
+    traverse_helper(0, root);
+}
+
+void traverse_helper (int start_index, node *root) {
     for (int i = start_index; i < NUM_CHILD; ++i) {
         node *child = root->childrens[i];
         if (child) {
             printf("%c", child->letter);
-            traverse(0, child);
+            traverse_helper(0, child);
         }
     }
 }
-        
 

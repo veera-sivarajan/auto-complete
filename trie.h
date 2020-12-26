@@ -20,3 +20,5 @@ void join_nodes (node *parent, node *child);
 void insert_word (node *root, char *word);
 
 void traverse (int start_index, node *root);
+
+void traverse_helper (int start_index, node *root);
