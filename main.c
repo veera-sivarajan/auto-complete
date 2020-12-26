@@ -6,7 +6,9 @@ int main (void) {
     int i = 0;
     while (i < 39) {
         printf("WORD: %s\n", words[i]);
+        free(words[i]);
         ++i;
     }
+    free(words);
     return 0;
 }

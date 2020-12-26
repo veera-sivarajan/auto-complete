@@ -2,7 +2,7 @@
 # include "string.h"
 
 char **read_file (char *filename) {
-    char *all_words[39];
+    char **all_words = (char **) malloc(sizeof(char *) * 50);
     int count = 0;
     FILE *file = fopen(filename, "r");
     if (file == NULL) return NULL;
@@ -13,6 +13,7 @@ char **read_file (char *filename) {
         count += 1;
     }
     fclose(file);
-    return &all_words;
+    free(word);
+    return all_words;
 }
         
