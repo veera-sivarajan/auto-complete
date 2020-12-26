@@ -1,7 +1,9 @@
 # include "trie.h"
-
+int i = 0;
 node *create_node (char letter) {
     node *temp = (node *) malloc(sizeof(node));
+    i += 1;
+    printf("Malloc count: %i\n", i);
     temp->letter = letter;
     for (int i = 0; i < NUM_CHILD; ++i) {
         temp->childrens[i] = NULL;
@@ -21,7 +23,9 @@ node *get_next (node *parent, char letter) {
 }
 
 void join_nodes (node *parent, node *child) {
-    parent->childrens[get_index(child->letter)] = child;
+    if (parent->childrens[get_index(child->letter)] == NULL) {
+        parent->childrens[get_index(child->letter)] = child;
+    }
 }
 
 void insert_word (node *root, char *word) {
@@ -48,3 +52,11 @@ void traverse_helper (int start_index, node *root) {
     }
 }
 
+void free_tree (node *root) {
+    for (int i = 0; i < NUM_CHILD; ++i) {
+        node *child = root->childrens[i];
+        if (child) 
+            free_tree(child);
+        free(child);
+    }
+}
