@@ -33,12 +33,14 @@ void insert_word (node *root, char *word) {
     }
 }
 
-void traverse (node *root, char next_letter) {
-    node *child = get_next(root, next_letter);
-    if (child) {
-        printf("%c", child->letter);
+void traverse (int start_index, node *root) {
+    for (int i = start_index; i < NUM_CHILD; ++i) {
+        node *child = root->childrens[i];
+        if (child) {
+            printf("%c", child->letter);
+        }
     }
-    printf("%c", child->childrens[get_index('e')]->letter);
+    // traverse(start_index + 1, child);
 }
         
 
