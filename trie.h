@@ -15,6 +15,14 @@ int get_index (char letter);
     
 void insert_word (node *root, char *word);
 
-int traverse (node *root, char *word);
+int contains (node *root, char *word);
+
+int last_node (node *root);
+
+char itoc (int num);
+
+void suggest (node *root, char prefix[50]);
+
+int auto_complete (node *root, char *word);
 
 void free_tree (node *root);
