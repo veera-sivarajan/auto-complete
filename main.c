@@ -11,8 +11,8 @@ int main (void) {
     //     ++i;
     // }
     // free(words);
-    insert_word(root, "bo");
     insert_word(root, "boner");
+    insert_word(root, "bo");
     traverse(get_index('b'), root->childrens[get_index('b')]);
     free_tree(root);
     free(root);

@@ -5,7 +5,6 @@
 # define NUM_CHILD 26
 
 typedef struct Node {
-    char letter;
     struct Node *childrens[NUM_CHILD];
     int EOW;
 } node;
