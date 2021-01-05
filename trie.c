@@ -74,7 +74,7 @@ void suggest (node *root, char prefix[51]) {
             char add = itoc(i);
             strncat(prefix, &add, 1);
             suggest(root->childrens[i], prefix);
-            prefix[strlen(prefix) - 2] = '\0';
+            prefix[strlen(prefix) - 1] = '\0';
         }
     }
 }
