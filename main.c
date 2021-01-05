@@ -1,5 +1,7 @@
 # include "readfile.h"
 # include "trie.h"
+# include <readline/readline.h>
+# include <readline/history.h>
 
 int main (void) {
     node *root = create_node();
@@ -10,7 +12,13 @@ int main (void) {
         ++i;
     }
     free(words);
-    auto_complete(root, "bl"); 
+    while (1) {
+        char *input = readline(">> ");
+        if (strcmp(input, "exit") == 0) {
+            break;
+        }
+        auto_complete(root, input); 
+    }
     free_tree(root);
     free(root);
     return 0;
