@@ -9,18 +9,12 @@ typedef struct Node {
     int EOW;
 } node;
 
-node *create_node (char letter, int num);
+node *create_node ();
     
 int get_index (char letter);
     
-node *get_next (node *parent, char letter);
-    
-void join_nodes (node *parent, node *child);
-
 void insert_word (node *root, char *word);
 
-void traverse (int start_index, node *root);
-
-void traverse_helper (int start_index, node *root);
+int traverse (node *root, char *word);
 
 void free_tree (node *root);

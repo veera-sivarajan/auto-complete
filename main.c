@@ -13,7 +13,12 @@ int main (void) {
     // free(words);
     insert_word(root, "boner");
     insert_word(root, "bo");
-    traverse(get_index('b'), root->childrens[get_index('b')]);
+    if (traverse(root, "boner")) {
+        printf("TRUE\n");
+    }
+    if (traverse(root, "hello")) {
+        printf("TRUE\n");
+    }
     free_tree(root);
     free(root);
     return 0;

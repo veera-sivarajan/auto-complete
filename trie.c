@@ -6,7 +6,7 @@ node *create_node () {
         for (int i = 0; i < NUM_CHILD; ++i) {
             temp->childrens[i] = NULL;
         }
-        temp->EOW = num;
+        temp->EOW = 0;
     }
     return temp;
 }
@@ -15,20 +15,34 @@ int get_index (char letter) {
     return letter - 'a';
 }
 
-node *get_next (node *parent) {
-}
-
-void join_nodes (node *parent, node *child) {
-}
-
-// FIXME: new letters overwrites existing letter's EOW data 
 void insert_word (node *root, char *word) {
+    int str_len = strlen(word);
+    node *temp = root;
+    int index;
+    for (int i = 0; i < str_len; ++i) {
+        index = get_index(word[i]);  
+        if (!temp->childrens[index]) { // if child node does not exist
+            temp->childrens[index] = create_node();
+        }
+        temp = temp->childrens[index];
+    }
+    temp->EOW = 1;
 }
 
-void traverse (int start_index, node *root) {
-}
-
-void traverse_helper (int start_index, node *root) {
+int traverse (node *root, char *word) {
+    node *temp = root;
+    int str_len = strlen(word);
+    int index;
+    for (int i = 0; i < str_len; ++i) {
+        index = get_index(word[i]);
+        if (!temp->childrens[index]) {
+            return 0; 
+        }
+        temp = temp->childrens[index];
+    }
+    if (temp != NULL && temp->EOW)
+        return 1;
+    return 0;
 }
 
 void free_tree (node *root) {
