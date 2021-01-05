@@ -11,9 +11,12 @@ int main (void) {
     //     ++i;
     // }
     // free(words);
-    insert_word(root, "apple");
-    insert_word(root, "akbar");
-    insert_word(root, "birbal");
+    char *word1 = (char *) malloc(20 * sizeof(char *));
+    word1 = "appppple";
+    char *word2 = (char *) malloc(20 * sizeof(char *));
+    word2 = "akbar";
+    insert_word(root, word1);
+    insert_word(root, word2);
     auto_complete(root, "a"); 
     free_tree(root);
     free(root);

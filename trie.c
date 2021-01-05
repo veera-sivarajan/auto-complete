@@ -59,19 +59,22 @@ char itoc (int num) {
     return res;
 }
 
-void suggest (node *root, char prefix[50]) { 
+void suggest (node *root, char prefix[51]) { 
     if (root->EOW) {
-        printf("%s\n", prefix);
+        for (int i = 0; prefix[i] != '\0'; ++i) {
+            printf("%c", prefix[i]);
+        }
+        printf("\n");
     }
     if (last_node(root)) {
         return;
     }
     for (int i = 0; i < NUM_CHILD; ++i) {
         if (root->childrens[i]) {
-            char add = itoc(97+i);
+            char add = itoc(i);
             strncat(prefix, &add, 1);
             suggest(root->childrens[i], prefix);
-            prefix[strlen(prefix) - 1] = '\0';
+            prefix[strlen(prefix) - 2] = '\0';
         }
     }
 }
@@ -91,7 +94,7 @@ int auto_complete (node *root, char *word) {
         result = -1;
     }
     if (!last_node(temp)) {
-        char buf[25];
+        char buf[51];
         strcpy(buf, word);
         suggest(temp, buf);
         result = 1;
